@@ -62,5 +62,5 @@ console.log(validateCred(mycard));
 console.log(findInvalidCards(batch));
 
 
-
+export {validateCred};
 
