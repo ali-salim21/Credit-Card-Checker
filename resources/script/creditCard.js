@@ -23,7 +23,27 @@ const mycard = [5, 5, 9, 4, 0, 7, 0, 0, 0, 1, 6, 0, 2, 2, 1, 2];
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
+const cardChecker = inputId => {
+  let cardDigit = inputId.length - 2
+  let checkSum = 0
+  let lenCheck = inputId.length % 2
+  let len2 = lenCheck === 1 ? 0 : 1;
 
+  while (cardDigit != -1) {
+    const checkFormula = ((inputId[cardDigit] * 2) < 9) ? inputId[cardDigit] * 2 : ((inputId[cardDigit] * 2) - 9)
+
+    if (cardDigit % 2 === lenCheck){
+      checkSum += checkFormula
+      cardDigit --
+    } else if (cardDigit % 2 === len2) {
+      checkSum += inputId[cardDigit]
+      cardDigit --
+    }
+  } if (cardDigit === -1) {
+      checkSum += inputId[inputId.length - 1]
+      return checkSum % 10 === 0 ? true : false
+  }
+}
 // Add your functions below:
 const validateCred = card => {
   const checker = card;
@@ -54,13 +74,13 @@ const validateCred = card => {
   }  
 }
 //this function should find the invaild credit cards
-const findInvalidCards = arr => arr.filter(element => validateCred(element) ? false : true); // if card is valued return false else retrun false or us arr.map instead
+const findInvalidCards = arr => arr.filter(element => cardChecker(element) ? false : true); // if card is valued return false else retrun false or us arr.map instead
 
 const idInvalidCardCompanies = arr => {}
 
-console.log(validateCred(mycard));
+console.log(cardChecker(mycard));
 console.log(findInvalidCards(batch));
 
 
-export {validateCred};
+//export {validateCred};
 

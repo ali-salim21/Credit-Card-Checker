@@ -34,6 +34,11 @@ const btn = document.getElementById('check');
 function main() {
     btn.addEventListener("click", () => {
         digits = document.getElementById('digits').value;
+        const digitArray = [];
+        for (digit in digits) {
+            digitArray.push(digit);
+        }
+        console.log(digitArray);
         console.log(validateCred(digits));
     })
 }

@@ -3,7 +3,24 @@
     padding: 0;
 }
 
+body {
+    background-color: khaki;
+}
+
+main {
+    margin: 25px 25px 50px;
+    padding: 5px 5px;
+    background-color: lemonchiffon;
+
+    display: flex;
+    flex-flow: nowrap;
+}
+
 h1 {
     text-align: center;
 }
 
+input, button {
+    margin: .5rem auto;
+    padding: 5px 5px;
+}
